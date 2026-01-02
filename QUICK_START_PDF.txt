@@ -1,0 +1,84 @@
+========================================
+QUICK START: Convert Markdown to PDF
+========================================
+
+Two ways to convert your documentation files to PDF:
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OPTION 1: Run the Automated Script
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Simply run:
+
+  ./install_and_convert.sh
+
+This will:
+1. Check if Pandoc is installed (install if needed)
+2. Convert both markdown files to PDF
+3. Show you the results
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OPTION 2: Run Commands Manually
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Step 1: Install Pandoc (one-time, ~500MB)
+─────────────────────────────────────────
+sudo apt-get update
+sudo apt-get install -y pandoc texlive-latex-base texlive-fonts-recommended texlive-latex-extra
+
+
+Step 2: Navigate to Project Directory
+─────────────────────────────────────────
+cd "/home/vigoroth/mst_research/temporal 3D detection  BEV/learning_projects/project-02-perspective-transform"
+
+
+Step 3: Convert First File (~20 seconds)
+─────────────────────────────────────────
+pandoc docs/math_foundations.md -o docs/math_foundations.pdf --pdf-engine=pdflatex --variable geometry:margin=1in --variable fontsize=11pt --variable documentclass=article --toc --toc-depth=3 --number-sections --highlight-style=tango
+
+
+Step 4: Convert Second File (~30 seconds)
+─────────────────────────────────────────────
+pandoc docs/implementation_notes.md -o docs/implementation_notes.pdf --pdf-engine=pdflatex --variable geometry:margin=1in --variable fontsize=11pt --variable documentclass=article --toc --toc-depth=3 --number-sections --highlight-style=tango
+
+
+Step 5: Verify Results
+──────────────────────
+ls -lh docs/*.pdf
+
+
+Step 6: Open PDFs
+─────────────────
+xdg-open docs/math_foundations.pdf
+xdg-open docs/implementation_notes.pdf
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Expected Output
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+After conversion, you should have:
+
+docs/math_foundations.pdf      (~2-3 MB)
+docs/implementation_notes.pdf  (~3-5 MB)
+
+Both with:
+✓ Professional formatting
+✓ Table of contents
+✓ Numbered sections
+✓ Syntax-highlighted code
+✓ Formatted tables
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Troubleshooting
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+If installation fails:
+  sudo apt-get install -y texlive-latex-extra
+
+If LaTeX errors occur:
+  Try alternative engine: --pdf-engine=xelatex
+
+For more options:
+  See PDF_CONVERSION_GUIDE.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
