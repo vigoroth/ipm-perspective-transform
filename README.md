@@ -312,7 +312,6 @@ pytest tests/ --cov=src --cov-report=term
 
 ## Documentation
 
-- **Learning Guide**: [`docs/PROJECT_02_PERSPECTIVE_TRANSFORM.md`](docs/PROJECT_02_PERSPECTIVE_TRANSFORM.md) - Comprehensive educational document
 - **Technical Docs**: [`docs/README.md`](docs/README.md) - API reference and usage guide
 - **Implementation Notes**: [`docs/implementation_notes.md`](docs/implementation_notes.md) - Design decisions
 
